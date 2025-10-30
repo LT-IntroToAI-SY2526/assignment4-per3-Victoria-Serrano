@@ -15,13 +15,14 @@ class TTTBoard:
     self.board = ['*'] * 9
 
     def _str_(self):
-        """return a string representation
-
+        """return a string representation"""
+    self.board = ['*'] * 9
     def make_move(self, player, pos):
         
         Args: 
             player - string "X" or "O"
             pos - integer 0-8 representing board position
+        """
 
         Returns:
             True if a move was made, False otherwise
@@ -30,15 +31,29 @@ class TTTBoard:
             self.board[pos] = player
             return True
         return False
+    
     def has won(self, player):
-        """Checik if the player has won
+        """Check if the player has won
 
         Args:
             player - string of either "X" or "O"
-    
+        
+        Return:
+            True if the player has won, False otherwise
+        """
+        winning_combos = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [2,4,6]]
+        
+        for combo in winning_combos:
+            if self.board[combo[0]]== player and self.board[combo[1]] == player and self.board[combo[2]] = player
+                return True
+        return False
+
+    """
     def game_over(self):
         """Check if the game is over (someone has won or the board is full)"""
-        return self.has.won("X") or self.has_won("0") or '*' not in self.board
+        
+    def clear(self):
+        """Clear the board for a new game""""""
 def play_tic_tac_toe() -> None:
     """Uses your class to play TicTacToe"""
 
